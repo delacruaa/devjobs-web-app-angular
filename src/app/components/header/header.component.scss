@@ -1,0 +1,60 @@
+header {
+    background: url(/assets/bg-pattern-header.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 160px;
+}
+
+
+
+.wrapper {
+    width: 100%;
+    height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .logo {
+        cursor: pointer;
+    }
+    .toggle {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+      }
+    .toggleButton {
+        width: 48px;
+        height: 24px;
+        border-radius:10px;
+        position: relative;
+        background-color: var(--color-white);
+        transition: 0.2s linear;
+        border: none;
+        cursor: pointer;
+      }
+      
+      .toggleButton:active {
+        transform: scale(0.9);
+      }
+      
+      .toggleButton:before {
+        content: '';
+        display: inline-block;
+        width: 14px;
+        height: 14px;
+        background-color: var(--color-violet);
+        border-radius: 100%;
+        position: absolute;
+        top: 50%;
+        left: 5px;
+        transition: 0.2s linear;
+      }
+      
+      .toggleButton[data-active-theme='light']:before {
+        transform: translateY(-50%) translateX(0);
+      }
+      
+      .toggleButton[data-active-theme='dark']:before {
+        transform: translateY(-50%) translateX(165%);
+      }
+}

@@ -1,0 +1,20 @@
+<div class="overlay" (click)="closeModal()">
+    <div class="wrapper" (click)="stopProp($event)">
+        <div class="input_wrapper">
+            <img src="/assets/icon-location.svg" alt="search" class="img"/>
+            <input [(ngModel)] = "filterLocation" (ngModelChange)="onInputChangeFilterLocation()"  name="filterLocation"  type="text" class="input" placeholder='Filter by location...'/>
+        </div>
+        <div class="checkbox_wrapper">
+            <div class="btn_wrapper">
+                 <button [ngClass]="!isCheck? 'btn':'btn_active'" (click)="onChangeIsCheck()">
+                 <img *ngIf="isCheck" src="/assets/icon-check.svg" alt="search" class="img"/>
+                 
+                 </button>
+                 <p class="text" >Full Time</p>
+            </div>
+         </div>
+        <button class="btn_close" (click)="closeModal()" >Close</button>
+    </div>
+    
+   
+</div>

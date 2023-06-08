@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="loading" *ngIf="loading">Loading...</div>
+    <div class="error" *ngIf="errorMessage && !loading">Something went wrond.. try later</div>
+    <div class="list__wrapper">
+       
+        <div [@fadeIn] class="card__wrapper" *ngFor="let job of filtered" routerLink="/{{job.id}}">
+            <img src="{{job.logo | slice:0}}" alt='logo'  class="img"/>
+            <div class="first">
+                <p class="createdAt">{{job.postedAt}}</p>
+                <span class="dot"></span>
+                <p class="contract">{{job.contract}}</p>
+            </div>
+            <h1 class="position">{{job.position}}</h1>
+            <p class="company">{{job.company}}</p>
+            <p class="country">{{job.location}}</p>
+        </div>
+      
+    </div>
+    
+</div>

@@ -1,0 +1,13 @@
+<header>
+    <div class="container">
+       <div class="wrapper">
+            <img src="/assets/logo.svg" alt="logo" routerLink="/" class="logo">
+            <div class="toggle">
+                <img src="/assets/icon-sun.svg" alt="sun">
+                <button class="toggleButton" [attr.data-active-theme]="isDark? 'dark': 'light'" (click)="themeSwitcher()"
+                ></button>
+                <img src="/assets/icon-moon.svg" alt="moon">
+            </div>
+       </div>
+    </div>
+</header>

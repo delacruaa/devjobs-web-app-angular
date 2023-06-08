@@ -1,0 +1,25 @@
+<div class="container">
+   <div [@fadeIn] class="wrapper">
+        <div class=input_wrapper>
+            <img src="/assets/icon-search.svg" alt="search"  class="img"/>
+            <input [(ngModel)] = "filterTitle"  (ngModelChange)="onInputChangeFilterTitle()" name="filterTitle" type="text"  class="input" placeholder='Filter by title...' />
+            <img src="/assets/icon-filter.svg" alt="search" class="img_filter" (click)="openModal()" />
+            
+        </div>
+        <div class="input_wrapper_desktop">
+            <img src="/assets/icon-location.svg" alt="search" class="img"/>
+            <input [(ngModel)] = "filterLocation" (ngModelChange)="onInputChangeFilterLocation()"  name="filterLocation"  type="text" class="input" placeholder='Filter by location...'/>
+        </div>
+        <div class="checkbox_wrapper">
+           <div class="btn_wrapper">
+                <button [ngClass]="!isCheck? 'btn':'btn_active'" (click)="onChangeIsCheck()">
+                <img *ngIf="isCheck" src="/assets/icon-check.svg" alt="search" class="img"/>
+                
+                </button>
+                <p class="text" >Full Time</p>
+           </div>
+        </div>
+       
+    </div>
+</div>
+<app-modal *ngIf="isOpenModal" ></app-modal>

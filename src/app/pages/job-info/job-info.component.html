@@ -1,0 +1,63 @@
+<div class="container">
+    <div class="loading" *ngIf="loading">Loading...</div>
+    <div class="error" *ngIf="errorMessage && !loading">Something went wrond.. try later</div>
+    <div [@fadeIn] class="site_wrapper" *ngIf="!loading && !errorMessage" >
+        <img src="{{job.logo | slice:0}}" alt='logo'  class="img"/>
+        <div class="info">
+           <div class="text_wrapper">
+                 <p class="company">{{job.company}}</p>
+                <p class="link">{{job.website}}</p>
+           </div>
+            <button (click)="redirectToExternalSite(job.website)">Company Site</button>
+        </div>
+    </div>
+
+    <div [@fadeIn] class="info_wrapper" *ngIf="!loading && !errorMessage">
+        <div class="header">
+            <div class="header_info">
+                <div class="first">
+                    <p class="createdAt">{{job.postedAt}}</p>
+                    <span class="dot"></span>
+                    <p class="contract">{{job.contract}}</p>
+                </div>
+                <h1 class="position">{{job.position}}</h1>
+                <p class="country">{{job.location}}</p>
+            </div>
+            <button (click)="redirectToExternalSite(job.website)" >Apply Now</button>
+        </div>
+        <p class="descr">
+        {{job.description}}
+        </p>
+        <div class="requirements">
+            <h2 class="title">
+            Requirements
+            </h2>
+            <p class="descr">{{job.requirements.content}}</p>
+            <ul class="list">
+                <li *ngFor="let item of job.requirements.items" >{{item}}</li>
+            
+            </ul>
+        </div>
+        <div class="requirements">
+            <h2 class="title">
+                What You Will Do
+            </h2>
+            <p class="descr">{{job.role.content}}</p>
+            <ol class="list_number" >
+                <li *ngFor="let item of job.role.items" >{{item}}</li>
+            
+            </ol>
+        </div>
+    </div>
+</div>
+<footer [@fadeIn] class="footer" *ngIf="!loading && !errorMessage">
+    <div class="container">
+        <div class="footer_wrapper">
+         <div class="text_wrapper">
+            <h3>{{job.position}}</h3>
+            <p>{{job.company}}</p>
+         </div>
+         <button (click)="redirectToExternalSite(job.website)">Apply Now</button>
+        </div>
+    </div>
+</footer>
